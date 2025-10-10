@@ -1,0 +1,31 @@
+<% layout("/layouts/boilerplate") %>
+
+<p>Current user: <%= currUser ? currUser.username : 'None' %></p>
+
+
+<div class="row">
+    <div class="col-4 offset-4 login-signup-page">
+        <div class="login-form">
+            <h4 class="mb-2">Login to LandBNB</h4>
+            <form method="post" action="/login" novalidate class="needs-validation">
+                <div>
+                    <label for="username" class="form-label mb-1">username</label>
+                    <input type="text" id="username" name="username" placeholder="enter username" class="form-control" required>
+                </div>
+                <div class="mt-3">
+                    <label for="password" class="form-label mb-1">password</label>
+                    <input type="password" id="password" name="password" placeholder="enter password" class="form-control" required>
+                </div>
+                <button class="btn btn-success login-btn mt-3">Log In</button>
+            </form>
+        </div>
+        <br><br>
+        <div class="signup-form">
+            <h4 class="mb-2">New to LandBNB</h4>
+            <form method="get" action="/signup">
+                <button class="btn btn-primary signup-btn">SignUp</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br>

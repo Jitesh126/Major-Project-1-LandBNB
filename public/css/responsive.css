@@ -1,0 +1,11 @@
+@media (max-width: 992px){
+    .under-nav {
+        display: none !important;
+    }
+}
+
+@media (max-width: 640px){
+    .f-links-bottom {
+        display: none;
+    }
+}

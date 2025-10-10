@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row">
+    <div class="col-7">
+        <div class="outer-s">
+            <% if(allListings.length > 0) { %>
+                <% for(let listing of allListings) { %>
+                <h6 class="mb-0">Over 1000 homes in <%= listing.country %></h6>
+                <% break; %>
+                <% } %>
+            <% } %>
+                    
+            <div class="row row-last row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+            <% for(let listing of allListings) { %>
+                <a href="/listings/<%= listing._id %>" class="card-link">
+                    <div class="card listing-cards col">
+                        <% for(let image of listing.image) { %>
+                        <img src=<%= image %> class="card-img-top" alt="listing-image" style="height: 12rem;">
+                        <% break; %>
+                        <% } %>
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <p class="card-text">
+                            <b><%= listing.title %></b> <br>
+                            &#8377;&nbsp;&nbsp;<%= listing.price.toLocaleString("en-IN") %> / night
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+            </div>       
+        </div>
+    </div>
+
+    <div class="col-5">
+        <div id="search-map"></div>
+        <br>
+    </div>
+</div>
+
+
+<script>
+    mapboxgl.accessToken = "<%= process.env.MAP_TOKEN%>";
+
+    const map = new mapboxgl.Map({
+    container: 'search-map', // container ID
+    center: [ "<%= coordinates1 %>" , "<%= coordinates2 %>" ], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+    zoom: 5 // starting zoom
+    });
+
+    const marker = new mapboxgl.Marker({ color: 'red'})
+        .setLngLat([ "<%= coordinates1 %>" , "<%= coordinates2 %>" ])
+        .addTo(map);
+</script>

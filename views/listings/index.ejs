@@ -1,0 +1,190 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="under-nav mt-2 mb-2">
+  <div class="option-icon">
+    <div class="icon">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </div>
+    <div class="icon Mountains">
+      <form action="/listings/catogory/mountains">
+        <button class="icon-btn">
+          <div><i class="fa-solid fa-mountain"></i></div>
+          <p>Mountains</p>
+        </button>
+      </form>
+    </div>
+    <div class="icon">
+      <form action="/listings/catogory/beaches">
+        <button class="icon-btn">
+          <div><i class="fa-solid fa-umbrella-beach"></i></div>
+          <p>Sand beaches</p>
+        </button>
+      </form>
+    </div>
+    <div class="icon">
+      <div><i class="fa-solid fa-snowflake"></i></div>
+      <p>Artic snow</p>
+    </div>
+    <div class="icon">
+      <div><i class="fa-solid fa-cow"></i></div>
+      <p>Farms houses</p>
+    </div>
+    <div class="icon">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Kings castle</p>
+    </div>
+    <div class="icon">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Amazing pools</p>
+    </div> 
+  </div>
+  <div class="option-filter me-2">
+    <form method="get" action="/listings/catogory">
+      <select name="catogory" class="form-select form-select-filter">
+        <option selected>Filter</option>
+        <option value="Mountains">Mountains</option>
+        <option value="Sand Beaches">Sand Beaches</option>
+      </select>
+      <button class=""><i class="fa-brands fa-searchengin"></i></button>
+    </form>
+  </div>
+  <div class="option-tax-toggle">
+    <div class="form-check form-switch form-check-reverse">
+      <input class="form-check-input" type="checkbox" id="switchCheckReverse">
+      <label class="form-check-label" for="switchCheckReverse">Display total price after taxes</label>
+    </div>
+  </div>
+</div>
+
+
+<div class="forHorizontalListing">
+<div class="horizontal mt-3 mb-3">
+      <div class="listing-info">
+        <h2 class="ctry mb-2">Joy of nature in India</h2>
+        <div class="left-right-btn">
+          <button class="left-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="right-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+  <div class="outer">
+    <% for(let listing of allListings) { %>
+      <% if(listing.country == "India") { %>
+        <a href="/listings/<%= listing._id %>" class="card-link">
+          <div class="inner card listing-cards" style="width: 16rem;">
+            <% for(let image of listing.image) { %>
+              <img src=<%= image %> class="card-img-top" alt="listing-image" style="height: 12rem;">
+              <% break; %>
+            <% } %>
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <b><%= listing.title %></b> <br>
+                &#8377;&nbsp;&nbsp;<%= listing.price.toLocaleString("en-IN") %> / night
+                <i class="gst">&nbsp; &nbsp;+18% GST</i>
+              </p>
+            </div>
+          </div>
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+</div>
+
+<!-- aaaaaaaaaaaaaaaaaaaaaa -->
+
+<div class="horizontal mt-3 mb-3">
+      <div class="listing-info">
+        <h2 class="ctry mb-2">Luxury at Dubai Beaches</h2>
+        <div class="left-right-btn">
+          <button class="left-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="right-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+  <div class="outer">
+    <% for(let listing of allListings) { %>
+      <% if(listing.country == "Dubai") { %>
+        <a href="/listings/<%= listing._id %>" class="card-link">
+          <div class="inner card listing-cards" style="width: 16rem;">
+            <% for(let image of listing.image) { %>
+              <img src=<%= image %> class="card-img-top" alt="listing-image" style="height: 12rem;">
+              <% break; %>
+            <% } %>
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <b><%= listing.title %></b> <br>
+                &#8377;&nbsp;&nbsp;<%= listing.price.toLocaleString("en-IN") %> / night
+                <i class="gst">&nbsp; &nbsp;+18% GST</i>
+              </p>
+            </div>
+          </div>
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+</div>
+
+<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+
+<div class="horizontal mt-3 mb-3">
+      <div class="listing-info">
+        <h2 class="ctry mb-2">Beauty of Thailand</h2>
+        <div class="left-right-btn">
+          <button class="left-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="right-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+  <div class="outer">
+    <% for(let listing of allListings) { %>
+      <% if(listing.country == "Thailand") { %>
+        <a href="/listings/<%= listing._id %>" class="card-link">
+          <div class="inner card listing-cards" style="width: 16rem;">
+            <% for(let image of listing.image) { %>
+              <img src=<%= image %> class="card-img-top" alt="listing-image" style="height: 12rem;">
+              <% break; %>
+            <% } %>
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                <b><%= listing.title %></b> <br>
+                &#8377;&nbsp;&nbsp;<%= listing.price.toLocaleString("en-IN") %> / night
+                <i class="gst">&nbsp; &nbsp;+18% GST</i>
+              </p>
+            </div>
+          </div>
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+</div>
+</div>
+
+<br>
+<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+
+<h2 class="mb-0">All Listings</h2>
+<div class="row row-last row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% for(let listing of allListings) { %>
+  <a href="/listings/<%= listing._id %>" class="card-link">
+    <div class="card listing-cards col">
+      <% for(let image of listing.image) { %>
+      <img src=<%= image %> class="card-img-top" alt="listing-image" style="height: 19rem;">
+      <% break; %>
+      <% } %>
+      <div class="card-img-overlay"></div>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= listing.title %></b> <br>
+          &#8377;&nbsp;&nbsp;<%= listing.price.toLocaleString("en-IN") %> / night
+          <i class="gst">&nbsp; &nbsp;+18% GST</i>
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
+
+<script src="/js/scrollContainer.js"></script>
+
+<script src="/js/taxScript.js"></script>
