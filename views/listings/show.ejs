@@ -105,7 +105,7 @@
                         <div class="card-title mt-2"><b>@<%= review.author.username %></b></div>
                         <div class="card-text"><%= review.comment %></div>
                         <div class="card-text mb-2"><p class="starability-result aaa" data-rating="<%= review.rating %>"></p></div>
-                        <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+                        <% if(currUser) { %>
                         <form method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
                             <button class="btn btn-sm btn-dark del-review-btn mb-3">Delete</button>
                         </form>
