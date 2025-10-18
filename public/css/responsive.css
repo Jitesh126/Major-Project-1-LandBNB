@@ -1,11 +1,54 @@
+@media (max-width: 1205px){
+    .original-image-div {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 992px){
     .under-nav {
         display: none !important;
+    }
+    .f-links-bottom-col a{
+        font-size: smaller;
+    }
+    .f-links-bottom-col div, .f-links-bottom-col-socials div {
+        font-size: smaller;
     }
 }
 
 @media (max-width: 640px){
     .f-links-bottom {
         display: none;
+    }
+}
+
+@media (max-width: 577px) {
+    .login-signup-row, .signup-row {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+@media (max-width: 400px){
+    .show-image-1 {
+        height: 25vh;
+    }
+    .show-image-2, .show-image-4 {
+        height: 12.1vh;
+    }
+    .show-image-3, .show-image-5 {
+        height: 12.1vh;
+    }
+    #map {
+        width: 100%;
+        height: 300px;
+    }
+    .review-card {
+        font-size: smaller;
+    }
+    .f-links p {
+        font-size: 0.6rem;
     }
 }

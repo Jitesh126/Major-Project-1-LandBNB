@@ -437,3 +437,8 @@ footer {
     background-color: whitesmoke;
     box-shadow: 10px 10px 5px grey;
 }
+
+.signup-row, .login-signup-row {
+    display: flex;
+    justify-content: center;
+}
