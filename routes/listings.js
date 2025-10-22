@@ -23,7 +23,7 @@ const validateListing = (req, res, next)=>{
 
 router.route("/")
     .get(wrapAsync(listingCallbacks.index))
-    .post(isLoggedIn, upload.array("listing[image]", 2),validateListing, wrapAsync(listingCallbacks.createNewListing));
+    .post(isLoggedIn, upload.array("listing[image]", 2), validateListing, wrapAsync(listingCallbacks.createNewListing));
 
 
 router.get("/new", isLoggedIn, wrapAsync(listingCallbacks.renderNewForm));

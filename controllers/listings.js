@@ -12,18 +12,6 @@ module.exports.renderNewForm = async(req, res)=> {
     res.render("listings/new.ejs");
 };
 
-// module.exports.createNewListing = async(req, res)=> {
-//     const url = req.file.path;
-//     const filename = req.file.filename;
-//     const newListing = req.body.listing;
-//     newListing.owner = req.user._id;
-//     newListing.image = {url, filename};
-//     await Listing.insertOne(newListing);
-//     req.flash("success", "listing added successfully!");
-//     res.redirect("/listings");
-// };
-
-
 module.exports.createNewListing = async(req, res)=> {
     let response = await geocodingClient.forwardGeocode({
         query: req.body.listing.location,
@@ -33,7 +21,7 @@ module.exports.createNewListing = async(req, res)=> {
     console.log(response.body.features[0].geometry);
 
     const newListing = req.body.listing;
-    console.log(newListing.catogory);
+    // console.log(newListing.catogory);
     newListing.owner = req.user._id;       
     const imagePaths = req.files.map(file => file.path);
     newListing.image = imagePaths;
@@ -71,21 +59,6 @@ module.exports.renderEditForm = async(req, res)=> {
     }
     res.render("listings/edit.ejs", {listing, listingImage});  
 };
-
-// module.exports.editListing = async(req, res)=> {
-//     const {id} = req.params;
-//     const listing = req.body.listing;
-//     const updatedListing = await Listing.findByIdAndUpdate(id, listing);
-//     if(typeof req.file !== "undefined"){
-//         const url = req.file.path;
-//         updatedListing.image[0] = url;
-//         console.log(updatedListing);
-//         await updatedListing.save();
-//     }
-//     req.flash("success", "Listing updated successfully");
-//     res.redirect(`/listings/${id}`);
-// };
-
 
 module.exports.editListing = async(req, res)=> {
     const {id} = req.params;
@@ -131,7 +104,7 @@ module.exports.searchListing = async(req, res)=> {
     if(allListings.length > 0){
         return res.render("listings/search.ejs", {allListings, coordinates1, coordinates2});
     }
-    req.flash("error", "No such listings found please search for India.");
+    req.flash("error", "No such listings found please search for other countries.");
     res.redirect("/listings");
 };
 

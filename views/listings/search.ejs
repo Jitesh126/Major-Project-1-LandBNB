@@ -43,9 +43,9 @@
     mapboxgl.accessToken = "<%= process.env.MAP_TOKEN%>";
 
     const map = new mapboxgl.Map({
-    container: 'search-map', // container ID
-    center: [ "<%= coordinates1 %>" , "<%= coordinates2 %>" ], // starting position [lng, lat]. Note that lat must be set between -90 and 90
-    zoom: 5 // starting zoom
+        container: 'search-map', // container ID
+        center: [ "<%= coordinates1 %>" , "<%= coordinates2 %>" ], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 5 // starting zoom
     });
 
     const marker = new mapboxgl.Marker({ color: 'red'})
