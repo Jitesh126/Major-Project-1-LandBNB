@@ -34,6 +34,6 @@ module.exports.logout = (req, res, next)=> {
             return next(err);
         }
         req.flash("success", "LogOut from LandBNB");
-        res.redirect("/listings");
+        res.redirect("/");
     });
 };
