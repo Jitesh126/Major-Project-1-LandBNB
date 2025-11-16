@@ -102,8 +102,9 @@
                 <div class="card review-card col-6 mb-3">
                     <div class="card-body">
                         <div class="card-title mt-2"><b>@<%= review.author.username %></b></div>
+                        <div class="card-text mb-1"><p class="starability-result aaa" data-rating="<%= review.rating %>"></p></div>
                         <div class="card-text"><%= review.comment %></div>
-                        <div class="card-text mb-2"><p class="starability-result aaa" data-rating="<%= review.rating %>"></p></div>
+                        <div class="card-text mt-1"><%= review.createdAT.toString().split(" ").slice(1,4).join("/") %></div>
                         <% if(currUser && currUser._id.equals(review.author._id)) { %>
                         <form method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
                             <button class="btn btn-sm btn-dark del-review-btn mb-3">Delete</button>
